@@ -1,0 +1,16 @@
+<!--<ul>
+  <li routerLink="list">Project list</li>
+  <li routerLink="add">Add Project</li>
+  <li routerLink="view">View Projects</li>
+</ul>-->
+<mat-list>
+  <pre>  </pre>
+  <mat-icon mat-list-icon><i class="material-icons"></i></mat-icon>
+
+  <mat-icon mat-list-icon><i class="material-icons" (click)="goBack()"  routerLink="/home">reply_all</i></mat-icon>
+  <pre></pre>  <mat-list-item  routerLink="list">&nbsp;&nbsp;&nbsp;&nbsp;Project list</mat-list-item>
+  <mat-divider></mat-divider>
+  <mat-list-item routerLink="add">&nbsp;&nbsp;&nbsp;&nbsp;Add Project</mat-list-item>
+  <mat-divider></mat-divider>
+  <mat-list-item routerLink="view">&nbsp;&nbsp;&nbsp;&nbsp;View Project</mat-list-item>
+</mat-list>

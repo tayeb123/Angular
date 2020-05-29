@@ -1,0 +1,53 @@
+<pre></pre>
+<mat-icon mat-list-icon><i class="material-icons" (click)="goBack()" routerLink="back">reply_all</i></mat-icon>
+<pre></pre>
+<form (ngSubmit)="submit()" #userForm="ngForm">
+  <mat-form-field appearance="fill">
+    <mat-label>&nbsp;&nbsp;User Name</mat-label>
+    <input #usernameNgModel="ngModel" required [(ngModel)]="user.username" id="username" name="username" matInput>
+    <mat-error *ngIf="usernameNgModel.invalid">
+      <span *ngIf="usernameNgModel.errors.required">Username is required</span>
+    </mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>&nbsp;&nbsp;Password</mat-label>
+    <input #passwordNgModel="ngModel" required minlength="8" type="password" [(ngModel)]="user.password" id="password"
+           name="password" matInput>
+    <mat-error *ngIf="passwordNgModel.invalid">
+      <span *ngIf="passwordNgModel.errors.minlength">Password is short</span>
+      <span *ngIf="passwordNgModel.errors.required">Password is required</span>
+    </mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>&nbsp;&nbsp;First Name</mat-label>
+    <input required [(ngModel)]="user.firstName" id="firstName" name="firstName" matInput>
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>&nbsp;&nbsp;Last Name</mat-label>
+    <input required [(ngModel)]="user.lastName" id="lastName" name="lastName" matInput>
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>&nbsp;&nbsp;Email</mat-label>
+    <input required [(ngModel)]="user.email" id="email" name="email" matInput>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-label>&nbsp;&nbsp;&nbsp;&nbsp;Role</mat-label>
+    <mat-select [(ngModel)]="user.role" id="role" name="role" matNativeControl required>
+      <mat-option [value]="'ADMIN'">&nbsp;&nbsp;Admin</mat-option>
+      <mat-option [value]="'RESPONSIBLE'">&nbsp;&nbsp;Responsible</mat-option>
+      <mat-option [value]="'DEVELOPER'">&nbsp;&nbsp;Developer</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br>
+  <button [disabled]="userForm.invalid" position="right" type="submit" mat-stroked-button color="primary">
+    <span>   </span>
+    Submit
+  </button>
+  <button type="reset" mat-raised-button>reset</button>
+</form>
+

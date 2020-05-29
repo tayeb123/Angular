@@ -1,0 +1,67 @@
+<mat-sidenav-container fullscreen>
+
+  <mat-sidenav
+    #sidenav mode="push" class="app-sidenav"
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="(isHandset$ | async) === false">
+
+  <mat-toolbar color="">
+    <!--future svg to go here-->
+    <span class="toolbar-filler"></span>
+    <button mat-icon-button color="warn" (click)="sidenav.toggle()" class="mat-icon-button sidenav-toggle-button"
+            [hidden]="!sidenav.opened">
+
+    <!-- *ngIf="isHandset$ | async"-->
+
+
+
+      <mat-icon aria-label="Menu" class="material-icons">settings_power</mat-icon>
+    </button>
+  </mat-toolbar>
+  <mat-nav-list>
+    <a mat-list-item class="sidenav-link" [routerLink]="['/users']" (click)="sidenav.toggle()">
+      <mat-icon mat-list-icon>people_outline</mat-icon>
+
+      <span class="title" mat-line>Users</span>
+
+
+      <span mat-line class="secondary">Add/List/View</span>
+
+
+    </a>
+    <a mat-list-item class="sidenav-link" [routerLink]="['/projects']" (click)="sidenav.toggle()">
+      <mat-icon mat-list-icon>perm_data_setting</mat-icon>
+      <span class="title" mat-line>   Projects         </span>
+      <span mat-line class="secondary">Add/List/View</span>
+      <pre>  </pre>
+    </a>
+    <a mat-list-item class="sidenav-link" [routerLink]="['/tasks']" (click)="sidenav.toggle()">
+      <mat-icon mat-list-icon>library_books</mat-icon>
+      <span class="title" mat-line>   tasks</span>
+      <span mat-line class="secondary">test</span>
+    </a>
+    <a mat-list-item class="sidenav-link" [routerLink]="['/stats']" (click)="sidenav.toggle()">
+      <mat-icon mat-list-icon><i class="material-icons">trending_up</i></mat-icon>
+      <span class="title" mat-line>   stats</span>
+      <span mat-line class="secondary">test</span>
+    </a>
+  </mat-nav-list>
+  </mat-sidenav>
+  <mat-toolbar id="appToolbar" color="primary">
+    <button mat-icon-button color="" (click)="sidenav.toggle()" class="mat-raised-button sidenav-toggle-button"
+            [hidden]="sidenav.opened">
+      <mat-icon aria-label="Menu" class="material-icons">filter_list</mat-icon>
+    </button>
+
+    <h1 class="component-title"></h1>
+    <span class="toolbar-filler">                                        </span>
+    <!--<button id="button-login" mat-button [routerLink]="['/signupin']" *ngIf="!(user | async)">Log In</button>-->
+    <pre>                                                                                                     </pre>
+    <button id="button-logout" mat-button>Log Out</button>
+    <mat-icon mat-list-icon><i class="material-icons">directions_run</i></mat-icon>
+
+  </mat-toolbar>
+
+  <router-outlet></router-outlet>
+</mat-sidenav-container>
